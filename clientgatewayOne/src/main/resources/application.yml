@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: first-service
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        health-check-path: ${server.servlet.context-path:}/actuator/health
+        health-check-interval: 15s
+        instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+        service-name: ${spring.application.name}
+
+
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        prefer-ip-address: true
+#        health-check-path: ${server.servlet.context-path:}/actuator/health
+#        health-check-interval: 15s
+#        instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+#        service-name: ${spring.application.name}
