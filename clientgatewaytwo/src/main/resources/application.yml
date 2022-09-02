@@ -7,11 +7,7 @@ spring:
 
   cloud:
     consul:
-      host: localhost
-      port: 8500
       discovery:
-        prefer-ip-address: true
-        health-check-path: ${server.servlet.context-path:}/actuator/health
-        health-check-interval: 15s
-        instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
         service-name: ${spring.application.name}
+        instanceId: ${spring.application.name}:${server.port}
+        prefer-ip-address: true

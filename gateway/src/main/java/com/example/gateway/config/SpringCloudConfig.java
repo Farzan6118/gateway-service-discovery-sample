@@ -1,4 +1,4 @@
-package com.example.gateway;
+package com.example.gateway.config;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -12,8 +12,8 @@ public class SpringCloudConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("testOne", predicateSpec -> predicateSpec.path("/api/v1/**").uri("lb://first-service"))
-                .route("testTwo", predicateSpec -> predicateSpec.path("/api/v2/**").uri("lb://second-service"))
+                .route("testOne", predicateSpec -> predicateSpec.path("/api/v1/one/**").uri("lb://first-service"))
+                .route("testTwo", predicateSpec -> predicateSpec.path("/api/v1/two/**").uri("lb://second-service"))
                 .build();
 
     }

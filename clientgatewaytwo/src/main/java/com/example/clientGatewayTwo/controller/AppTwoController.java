@@ -1,14 +1,14 @@
-package com.example.clientGatewayTwo;
+package com.example.clientGatewayTwo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v2")
-public class SecondController {
+@RequestMapping("/api/v1/two")
+public class AppTwoController {
 
-    @GetMapping("test")
+    @GetMapping("/test")
     public String test() {
         return "sample test two";
     }
